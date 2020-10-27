@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="16dp"
+    android:orientation="vertical">
+
+    <TextView
+        style="?android:listSeparatorTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/city_label" />
+
+    <TextView
+        android:id="@+id/cityName"
+        style="?android:listSeparatorTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="YOUR FUCKING CITY!" />
+
+    <TextView
+        android:id="@+id/cityDescription"
+        style="?android:listSeparatorTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="YOUR FUCKING DESCRIPTION!" />
+
+    <TextView
+        android:id="@+id/date"
+        style="?android:listSeparatorTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="YOUR FUCKING DATE!" />
+
+    <TextView
+        android:id="@+id/temperature"
+        style="?android:listSeparatorTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="YOUR FUCKING TEMPERATURE!" />
+
+    <TextView
+        android:id="@+id/temperatureDescription"
+        style="?android:listSeparatorTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="YOUR FUCKING TEMPERATURE DESCRIPTION!" />
+    <TextView
+        style="?android:listSeparatorTextViewStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/seven_days_weather" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/weekRecycler"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        />
+
+
+</LinearLayout>

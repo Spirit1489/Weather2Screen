@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Weather2Screens</string>
+    <string name="weather_title_label">Title</string>
+    <string name="weather_details_label">Details</string>
+    <string name="city_label">City</string>
+    <string name="temperature_label">Temperature</string>
+    <string name="three_days_weather">3 Days Weather</string>
+    <string name="seven_days_weather">7 Days Weather</string>
+    <string name="new_weather">New City</string>
+
+</resources>
