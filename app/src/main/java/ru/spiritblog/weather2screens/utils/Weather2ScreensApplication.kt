@@ -1,4 +1,4 @@
-package ru.spiritblog.weather2screens
+package ru.spiritblog.weather2screens.utils
 
 import android.app.Application
 import ru.spiritblog.weather2screens.database.WeatherRepository

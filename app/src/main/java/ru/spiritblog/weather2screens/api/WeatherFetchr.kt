@@ -3,12 +3,15 @@ package ru.spiritblog.weather2screens.api
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import com.google.gson.JsonObject
+import org.json.JSONArray
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import ru.spiritblog.weather2screens.Weather
+import ru.spiritblog.weather2screens.models.Weather
 
 private const val TAG = "WeatherFetchr"
 
@@ -19,7 +22,7 @@ class WeatherFetchr {
 
     init {
         val retrofit: Retrofit = Retrofit.Builder()
-            .baseUrl("https://api.weather.yandex.ru/v2/")
+            .baseUrl("https://weatherbit-v1-mashape.p.rapidapi.com/forecast/")
             .addConverterFactory(GsonConverterFactory.create())
             .build()
 
@@ -28,28 +31,37 @@ class WeatherFetchr {
     }
 
 
-    fun fetchWeathers(): LiveData<List<Weather>> {
-
-        val responseLiveData: MutableLiveData<List<Weather>> = MutableLiveData()
-        val weatherRequest: Call<ForecastsResponse> = weatherApi.fetchWeathers()
+    fun fetchTestWeathers():LiveData<Weather>{
 
 
-        weatherRequest.enqueue(object : Callback<ForecastsResponse> {
+        return MutableLiveData()
+    }
 
-            override fun onFailure(call: Call<ForecastsResponse>, t: Throwable) {
+
+
+
+
+
+    fun fetchWeathers(): LiveData<JsonObject> {
+
+        val responseLiveData: MutableLiveData<JsonObject> = MutableLiveData()
+        val weatherRequest: Call<JsonObject> = weatherApi.fetchWeathers()
+
+
+        weatherRequest.enqueue(object : Callback<JsonObject> {
+
+            override fun onFailure(call: Call<JsonObject>, t: Throwable) {
                 Log.e(TAG, "Failed to fetch weathers", t)
             }
 
 
             override fun onResponse(
-                call: Call<ForecastsResponse>,
-                response: Response<ForecastsResponse>
+                call: Call<JsonObject>,
+                response: Response<JsonObject>
             ) {
-                Log.d(TAG, "Response received")
-                val forecastsResponse: ForecastsResponse? = response.body()
-                var weatherForecasts: List<Weather> = forecastsResponse?.weathers?: mutableListOf()
-                weatherForecasts = weatherForecasts.filterNot { it.date.isBlank() }
-                responseLiveData.value = weatherForecasts
+                Log.d(TAG, "Response received ${response.body()}")
+
+                responseLiveData.value = response.body()
             }
 
         })

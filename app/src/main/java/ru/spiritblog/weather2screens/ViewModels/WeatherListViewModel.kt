@@ -1,8 +1,8 @@
-package ru.spiritblog.weather2screens
+package ru.spiritblog.weather2screens.ViewModels
 
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
 import ru.spiritblog.weather2screens.database.WeatherRepository
+import ru.spiritblog.weather2screens.models.Weather
 
 class WeatherListViewModel : ViewModel() {
 
@@ -13,9 +13,6 @@ class WeatherListViewModel : ViewModel() {
     fun addWeather(weather: Weather) {
         weatherRepository.addWeather(weather)
     }
-
-
-
 
 
 

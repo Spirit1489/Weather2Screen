@@ -1,10 +1,12 @@
 package ru.spiritblog.weather2screens.api
 
 import com.google.gson.annotations.SerializedName
-import ru.spiritblog.weather2screens.Weather
+import org.json.JSONArray
+import org.json.JSONObject
+import ru.spiritblog.weather2screens.models.Weather
 
 class ForecastsResponse {
-    @SerializedName("forecasts")
-    lateinit var weathers: List<Weather>
+    @SerializedName("data")
+    lateinit var weathers: JSONArray
 
 }

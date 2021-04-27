@@ -2,7 +2,7 @@ package ru.spiritblog.weather2screens.database
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import ru.spiritblog.weather2screens.Weather
+import ru.spiritblog.weather2screens.models.Weather
 import java.util.*
 
 @Dao

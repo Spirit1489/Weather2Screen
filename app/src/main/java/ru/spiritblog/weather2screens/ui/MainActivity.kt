@@ -1,8 +1,8 @@
-package ru.spiritblog.weather2screens
+package ru.spiritblog.weather2screens.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import ru.spiritblog.weather2screens.R
 import java.util.*
 
 

@@ -1,25 +1,23 @@
-package ru.spiritblog.weather2screens
+package ru.spiritblog.weather2screens.ui
 
 import android.content.Context
 import android.os.Bundle
 import android.util.Log
 import android.view.*
-import android.widget.TabHost
 import android.widget.TextView
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
-import retrofit2.Retrofit
-import retrofit2.converter.scalars.ScalarsConverterFactory
-import ru.spiritblog.weather2screens.api.WeatherApi
+import com.google.gson.JsonObject
+import org.json.JSONArray
+import org.json.JSONObject
+import ru.spiritblog.weather2screens.R
+import ru.spiritblog.weather2screens.ViewModels.WeatherListViewModel
 import ru.spiritblog.weather2screens.api.WeatherFetchr
+import ru.spiritblog.weather2screens.models.Weather
 import java.util.*
 
 private const val TAG = "WeatherListFragment"
@@ -59,13 +57,6 @@ class WeatherListFragment : Fragment() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setHasOptionsMenu(true)
-
-        val weatherLiveData: LiveData<List<Weather>> = WeatherFetchr().fetchWeathers()
-
-        weatherLiveData.observe(this, Observer { weathers ->
-            Log.d(TAG, "Response received: $weathers")
-
-        })
 
 
     }
@@ -145,7 +136,6 @@ class WeatherListFragment : Fragment() {
 
         private val titleTextView: TextView = itemView.findViewById(R.id.weather_city)
         private val temperatureTextView: TextView = itemView.findViewById(R.id.weather_temperature)
-        private val descriptionTextView: TextView = itemView.findViewById(R.id.weather_description)
 
 
         init {
@@ -157,8 +147,6 @@ class WeatherListFragment : Fragment() {
             this.weather = weather
             titleTextView.text = this.weather.cityTitle
             temperatureTextView.text = this.weather.temperature.toString()
-            descriptionTextView.text = this.weather.description
-
 
         }
 

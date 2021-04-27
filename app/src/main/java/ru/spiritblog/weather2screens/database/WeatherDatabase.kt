@@ -3,7 +3,7 @@ package ru.spiritblog.weather2screens.database
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import ru.spiritblog.weather2screens.Weather
+import ru.spiritblog.weather2screens.models.Weather
 
 
 @Database(entities = [Weather::class], version = 1)

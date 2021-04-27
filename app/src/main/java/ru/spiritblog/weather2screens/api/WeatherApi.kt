@@ -1,5 +1,8 @@
 package ru.spiritblog.weather2screens.api
 
+import com.google.gson.JsonObject
+import org.json.JSONArray
+import org.json.JSONObject
 import retrofit2.Call
 import retrofit2.http.GET
 
@@ -7,26 +10,21 @@ import retrofit2.http.Headers
 
 interface WeatherApi {
 
-    @GET("/")
-
-    fun fetchContents(): Call<String>
 
 
     @GET(
-        "forecast?lat=55.75396" +
-                "&lon=37.620393" +
-                "&limit=7" +
-                "&hours=false"+
-                "&extra=false"
+        "daily?lat=38.5&lon=-78.5"
 
     )
 
     @Headers(
-        "X-Yandex-API-Key:0acc1fc6-c409-4208-bfd7-bd1f232c1775"
+        "x-rapidapi-key:5a36fe721fmsh87a660f8bb71d9cp1a0913jsn5ba7b9d36d08",
+        "x-rapidapi-host:weatherbit-v1-mashape.p.rapidapi.com"
     )
 
 
-    fun fetchWeathers(): Call<ForecastsResponse>
+
+    fun fetchWeathers(): Call<JsonObject>
 
 
 }

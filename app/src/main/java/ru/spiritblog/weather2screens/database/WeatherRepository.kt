@@ -1,9 +1,12 @@
 package ru.spiritblog.weather2screens.database
 
 import android.content.Context
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.room.Room
-import ru.spiritblog.weather2screens.Weather
+import com.google.gson.JsonObject
+import ru.spiritblog.weather2screens.api.WeatherFetchr
+import ru.spiritblog.weather2screens.models.Weather
 import java.lang.IllegalStateException
 import java.util.*
 import java.util.concurrent.Executors
@@ -43,6 +46,22 @@ class WeatherRepository private constructor(context: Context) {
             weatherDao.addWeather(weather)
         }
     }
+
+
+//
+//    val weatherLiveData: LiveData<JsonObject> = WeatherFetchr().fetchWeathers()
+//
+//    weatherLiveData.observe(this, Observer { weathers ->
+//        Log.d(TAG, "Response received: $weathers")
+//
+//    })
+//
+//
+
+
+
+
+
 
 
     companion object {
